@@ -1,0 +1,47 @@
+img {
+  width: 200px;
+  length: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+h1 {
+  text-align: center;
+}
+
+.product-card {
+ 
+  h3, p, h4 {
+    font-family: Tahoma;
+    text-align: center;
+  }
+
+}
+
+.product-show {
+  text-align: center;
+}
+
+body {background-image: image-url("squared_metal.png")
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+}
+
+.navbar-default {
+  background-color: #2F4F4F;
+}
+
+.address {
+  text-align: center;
+}
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
