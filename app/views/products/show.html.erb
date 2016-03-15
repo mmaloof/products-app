@@ -7,6 +7,9 @@
 <p>Total Price: <%= number_to_currency (@product.total) %></p>
 <p><%= @product.sale_message%></p>
 <img src="<%= @product.image %>" style="width:200px;">
+<div class="wrapper">
+<button type="button" class="btn btn-default">Buy</button>
+</div>
 <a href="/products">Back to all products</a>
 
 <%= link_to "Edit this product", "/products/#{@product.id}/edit" %>

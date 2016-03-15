@@ -12,7 +12,9 @@ class ProductsController < ApplicationController
     Product.create({
       name: params[:name],
       description: params[:description],
-      price: params[:price]
+      price: params[:price],
+      color: params[:color], 
+      material: params[:material]
       })
     render 'create.html.erb'
   end
@@ -35,7 +37,9 @@ class ProductsController < ApplicationController
     @product.update(
       name: params[:name],
       description: params[:description],
-      price: params[:price]
+      price: params[:price],
+      color: params[:color], 
+      material: params[:material]
     )
     render 'update.html.erb'
   end
