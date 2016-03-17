@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   def random
+    product_id = params[:id]
+    @product = Product.find_by(id: product_id)
     @product = Product.all.sample
     render 'show.html.erb'
   end
