@@ -1,7 +1,7 @@
 <h1>Check out these dope products</h1>
-
+<% @products.each_slice(3) do |three_products| %>
 <div class="row">
-  <% @products.each do |equipment| %>
+  <% three_products.each do |equipment| %>
   
 
   <div class="col-md-4 product-card">
@@ -21,4 +21,5 @@
 
     <%end%>
   </div>
+  <% end %>
 

@@ -13,7 +13,6 @@ class ProductsController < ApplicationController
       name: params[:name],
       description: params[:description],
       price: params[:price],
-      color: params[:color], 
       material: params[:material]
       })
     render 'create.html.erb'
@@ -38,7 +37,6 @@ class ProductsController < ApplicationController
       name: params[:name],
       description: params[:description],
       price: params[:price],
-      color: params[:color], 
       material: params[:material]
     )
     render 'update.html.erb'
