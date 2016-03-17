@@ -1,4 +1,9 @@
 class ProductsController < ApplicationController
+  def random
+    @product = Product.all.sample
+    render 'show.html.erb'
+  end
+
   def index
     @products = Product.all
     sort_attribute = params[:sort]
