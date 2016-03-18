@@ -68,4 +68,10 @@ class ProductsController < ApplicationController
     @product.destroy
     render 'destroy.html.erb'
   end
+
+  def run_search
+    search_term = params[:search]
+    @products = Product.where("name LIKE ?", "%" + search_term + "%")
+    render 'index.html.erb'
+  end
 end
