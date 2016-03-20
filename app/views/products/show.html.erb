@@ -6,7 +6,10 @@
 <p>Sales Tax: <%= number_to_currency (@product.sales_tax) %></p>
 <p>Total Price: <%= number_to_currency (@product.total) %></p>
 <p><%= @product.sale_message%></p>
-<img src="<%= @product.image %>" style="width:200px;">
+<% @product.images.each do |image|%>
+  <img src="<%= image.image %>">
+<% end %>
+
 <div class="wrapper">
 <button type="button" class="btn btn-default">Buy</button>
 </div>

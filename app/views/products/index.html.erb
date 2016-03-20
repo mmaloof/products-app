@@ -12,8 +12,9 @@
       <h3>Price: <%= number_to_currency (equipment.price) %></h3>
       <h4>Sales Tax: <%= number_to_currency (equipment.sales_tax) %></h4>
       <h3>Total Price: <%= number_to_currency (equipment.total) %></h3>
+      <p> Brought to you by: <%= equipment.supplier.name %></p>
       <h3><%= equipment.sale_message %>
-        <img src="<%= equipment.image %>" style="width:200px;">
+        <img src="<%= equipment.images[0].image %>">
       </div>
     </div>
 
