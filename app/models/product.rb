@@ -2,8 +2,6 @@ class Product < ActiveRecord::Base
   belongs_to :supplier
   has_many :images
   has_many :orders
-
-
   TAX_RATE = 0.09
 
   def description_all_caps
