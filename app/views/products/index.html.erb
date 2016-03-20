@@ -1,26 +1,21 @@
 <h1>Check out these dope products</h1>
 <% @products.each_slice(3) do |three_products| %>
-<div class="row">
-  <% three_products.each do |equipment| %>
-  
-
-  <div class="col-md-4 product-card">
-    <div class="well">
-      <h3>Item: <a href="/products/<%= equipment.id %>"><%= equipment.name %></a></h3>
-      <h3>Brand: <%= equipment.description_all_caps %></h3>
-      <h3>Material: <%= equipment.material %></h3>
-      <h3>Price: <%= number_to_currency (equipment.price) %></h3>
-      <h4>Sales Tax: <%= number_to_currency (equipment.sales_tax) %></h4>
-      <h3>Total Price: <%= number_to_currency (equipment.total) %></h3>
-      <p> Brought to you by: <%= equipment.supplier.name %></p>
-      <h3><%= equipment.sale_message %>
+  <div class="row">
+   <% three_products.each do |equipment| %>
+    <div class="col-md-4 product-card">
+     <div class="well">
+        <h3>Item: <a href="/products/<%= equipment.id %>"><%= equipment.name %></a></h3>
+        <h3>Brand: <%= equipment.description_all_caps %></h3>
+        <h3>Material: <%= equipment.material %></h3>
+        <h3>Price: <%= number_to_currency (equipment.price) %></h3>
+        <h4>Sales Tax: <%= number_to_currency (equipment.sales_tax) %></h4>
+        <h3>Total Price: <%= number_to_currency (equipment.total) %></h3>
+        <p> Brought to you by: <%= equipment.supplier.name %></p>
+        <h3><%= equipment.sale_message %>
         <img src="<%= equipment.images[0].image %>">
       </div>
     </div>
-
-
-
-    <%end%>
-  </div>
-  <% end %>
+  <%end%>
+</div>
+<% end %>
 

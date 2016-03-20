@@ -1,19 +1,19 @@
 <div class="product-show">
-<h1>Item</h1>
-<p>Name: <%= @product.name %></p>
-<p>Description: <%= @product.description %> </p>
-<p>Price: <%= number_to_currency (@product.price) %> </p>
-<p>Sales Tax: <%= number_to_currency (@product.sales_tax) %></p>
-<p>Total Price: <%= number_to_currency (@product.total) %></p>
-<p><%= @product.sale_message%></p>
-<% @product.images.each do |image|%>
+  <h1>Item</h1>
+  <p>Name: <%= @product.name %></p>
+  <p>Description: <%= @product.description %> </p>
+  <p>Price: <%= number_to_currency (@product.price) %> </p>
+  <p>Sales Tax: <%= number_to_currency (@product.sales_tax) %></p>
+  <p>Total Price: <%= number_to_currency (@product.total) %></p>
+  <p><%= @product.sale_message%></p>
+  <% @product.images.each do |image|%>
   <img src="<%= image.image %>">
 <% end %>
 
 <div class="wrapper">
-<button type="button" class="btn btn-default">Buy</button>
+  <button type="button" class="btn btn-default">Buy</button>
 </div>
-<a href="/products">Back to all products</a>
+  <a href="/products">Back to all products</a>
 
 <%= link_to "Edit this product", "/products/#{@product.id}/edit" %>
 <%= link_to "Delete this shit", "/products/#{@product.id}", method: :delete %>

@@ -29,13 +29,16 @@ class ProductsController < ApplicationController
   end
 
   def create
+
     Product.create({
       name: params[:name],
       description: params[:description],
       price: params[:price],
-      material: params[:material]
+      material: params[:material],
+      user_id: current_user.id 
       })
-    render 'create.html.erb'
+    flash[:success] = "Wow, thanks for doing my job for me!"
+    redirect_to "/products/#{@product.id}"
   end
 
   def show
@@ -59,14 +62,16 @@ class ProductsController < ApplicationController
       price: params[:price],
       material: params[:material]
     )
-    render 'update.html.erb'
+    flash[:success] = "Product successfully updated!"
+    redirect_to "/products/#{@product.id}"
   end
 
   def destroy
     product_id = params[:id]
     @product = Product.find_by(id: product_id)
     @product.destroy
-    render 'destroy.html.erb'
+    flash[:warning] = "You destroyed my fucking product!!!"
+    redirect_to "/products"
   end
 
   def run_search
