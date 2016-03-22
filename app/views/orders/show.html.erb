@@ -2,7 +2,7 @@
 <div class="order-show">
   <h3> You ordered: <%= @order.product.description %></h3>
   <img src="<%= @order.product.images.first.image %>" alt="">
-  <h3> Email: <%= current_user.email %></h3>
+  <h3> Your Email: <%= current_user.email %></h3>
   <h3> Quantity: <%= @order.quantity %></h3>
   <h3> Subtotal: <%= number_to_currency (@order.subtotal) %></h3>
   <h3> Sales Tax: <%= number_to_currency (@order.tax) %></h3>
