@@ -1,1 +1,12 @@
+
 <h1>Hey, cool, thanks for your money!</h1>
+<div class="order-show">
+  <h2> You ordered: <%= @order.product.description %></h2>
+  <h2> Sales Tax: <%= number_to_currency (@order.product.sales_tax) %></h2>
+  <h2> Order Total: <%= number_to_currency (@order.product.price) %></h2>
+  <h2> Your Order Number: <%= @order.id %></h2>
+  <a href="/products">Back to all products</a>
+
+
+  </div>
+
