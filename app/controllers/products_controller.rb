@@ -29,14 +29,13 @@ class ProductsController < ApplicationController
   end
 
   def create
-
-    Product.create({
+    Product.create(
       name: params[:name],
       description: params[:description],
       price: params[:price],
       material: params[:material],
       user_id: current_user.id 
-      })
+    )
     flash[:success] = "Wow, thanks for doing my job for me!"
     redirect_to "/products/#{@product.id}"
   end
