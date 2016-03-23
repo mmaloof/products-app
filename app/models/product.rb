@@ -2,10 +2,12 @@ class Product < ActiveRecord::Base
   belongs_to :supplier
   has_many :images
   has_many :orders
+  has_many :categorized_products
+  has_many :categories, through: :categorized_products
   TAX_RATE = 0.09
 
-  def description_all_caps
-    description.upcase
+  def name_all_caps
+    name.upcase
   end
 
   def sales_tax

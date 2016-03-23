@@ -5,7 +5,6 @@
     <div class="col-md-4 product-card">
      <div class="well">
         <h3>Item: <a href="/products/<%= equipment.id %>"><%= equipment.name %></a></h3>
-        <h3>Brand: <%= equipment.description_all_caps %></h3>
         <h3>Material: <%= equipment.material %></h3>
         <h3>Price: <%= number_to_currency (equipment.price) %></h3>
         <h4>Sales Tax: <%= number_to_currency (equipment.sales_tax) %></h4>
