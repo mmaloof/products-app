@@ -21,6 +21,10 @@ class ProductsController < ApplicationController
     if sort_discount != nil
       @products = Product.where('price < ?', 10)
     end
+    
+    if params[:category]
+      @products = Category.find_by(name: params[:category]).products
+    end
     render "index.html.erb"
   end
 

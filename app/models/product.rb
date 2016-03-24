@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   has_many :orders
   has_many :categorized_products
   has_many :categories, through: :categorized_products
+  
   TAX_RATE = 0.09
 
   def name_all_caps
@@ -24,5 +25,13 @@ class Product < ActiveRecord::Base
       message = "This shit is on sale!"
     end
     message 
+  end
+
+  def printable_category_names
+    names = []
+    categories.each do |category|
+      names << category.name
+    end
+    names.join(", ")
   end
 end

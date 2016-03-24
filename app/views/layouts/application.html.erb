@@ -38,11 +38,14 @@
           <ul class="dropdown-menu">
             <li><a href="/products/new">Add a Product</a></li>
             <li><a href="/random/#{@product.id}">Random Item</a></li>
-            <li><a href="#">another action</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li>
+            <% Category.all.each do |category| %>
+              <li><a href="/products?category=<%= category.name %>"> Show <%= category.name %> only</a></li>
+            <% end %>
+
           </ul>
         </li>
       </ul>

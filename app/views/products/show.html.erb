@@ -1,10 +1,11 @@
 <div class="product-show">
   <h1>Item</h1>
-  <p>Name: <%= @product.name %></p>
-  <p>Price: <%= number_to_currency (@product.price) %> </p>
-  <p>Sales Tax: <%= number_to_currency (@product.sales_tax) %></p>
-  <p>Total Price: <%= number_to_currency (@product.total) %></p>
-  <p><%= @product.sale_message%></p>
+  <h3>Name: <%= @product.name %></h3>
+  <h4>Category: <%= @product.printable_category_names %></h4>
+  <h3>Price: <%= number_to_currency (@product.price) %> </h3>
+  <h4>Sales Tax: <%= number_to_currency (@product.sales_tax) %></h4>
+  <h3>Total Price: <%= number_to_currency (@product.total) %></h3>
+  <h3><%= @product.sale_message%></h3>
   <% @product.images.each do |image|%>
   <img src="<%= image.image %>">
   <% end %>
