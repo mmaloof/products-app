@@ -11,12 +11,13 @@
   <% end %>
 
   <h2>To purchase:</h2>
-  <%= form_tag '/orders', method: :post do %>
+  <%= form_tag '/carted_products', method: :post do %>
     <div class="Form-Group">
       <%= label_tag :quantity %>
       <%= text_field_tag :quantity %>
       <%= hidden_field_tag :product_id, @product.id %>
-      <button type="submit" class="btn btn-default">Buy</button>
+      <%= hidden_field_tag :status, "In Cart" %>
+      <button type="submit" class="btn btn-default">Add To Cart</button>
     </div>
   <% end %>
 

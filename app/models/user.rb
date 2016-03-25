@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :orders
-  has_many :cartedproducts 
+  has_many :carted_products
+  has_many :products, through: :carted_products
 end

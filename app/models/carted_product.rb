@@ -1,5 +1,6 @@
 class CartedProduct < ActiveRecord::Base
   belongs_to :user
-  has_many :products
+  belongs_to :products
+  belongs_to :order 
   
 end
