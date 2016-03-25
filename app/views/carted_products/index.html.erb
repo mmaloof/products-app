@@ -1,0 +1,16 @@
+<h1>YOUR FRIGGIN' SHOPPING CART:</h1>
+
+<div class="row">
+
+  <% @carted_products.each do |carted_product| %>
+
+  <div class="col-md-4">
+    <div class="well">
+      <%= carted_product.product.name %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+
