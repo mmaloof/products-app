@@ -1,13 +1,17 @@
 <h1>YOUR FRIGGIN ORDER!</h1>
 <div class="order-show">
-  <h3> You ordered: <%= @order.product.description %></h3>
-  <img src="<%= @order.product.images.first.image %>" alt="">
+  <h3>Order ID: <%= 4393729 + @order.id %></h3>
+  <h3> Purchased at: <%= @order.created_at %></h3>
   <h3> Your Email: <%= current_user.email %></h3>
-  <h3> Quantity: <%= @order.quantity %></h3>
-  <h3> Subtotal: <%= number_to_currency (@order.subtotal) %></h3>
-  <h3> Sales Tax: <%= number_to_currency (@order.tax) %></h3>
-  <h3> Total: <%= number_to_currency (@order.total) %></h3>
-  <h3> Your Order Number: <%= @order.id %></h3>
+
+  <% @order.carted_products.each do |carted_product| %>
+    <h2>Name: <%= carted_product.product.name %></h2>
+    <h2>Quantity: <%= carted_product.quantity %></h2>
+  <% end %>
+
+  <h3>Subtotal: <%= number_to_currency (@order.subtotal) %></h3>
+  <h3>Tax: <%= number_to_currency (@order.tax) %></h3>
+  <h3>Total: <%= number_to_currency (@order.total) %></h3>
   <a href="/products">Back to all products</a>
 </div>
 

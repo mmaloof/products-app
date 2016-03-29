@@ -6,7 +6,9 @@
 
   <div class="col-md-4">
     <div class="well">
-      <%= carted_product.product.name %>
+      <h2>Product: <%= carted_product.product.name %> (<%= carted_product.quantity %>)</h2>
+      <%= link_to "Remove this shit!", "/carted_products/#{carted_product.id}", method: :delete %>
+      <img src="<%= carted_product.product.images.first.image %>" alt="">
     </div>
   </div>
   <% end %>
