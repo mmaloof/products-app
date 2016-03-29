@@ -22,8 +22,9 @@
   <% end %>
 
   <a href="/products">Back to all products</a>
-
-<%= link_to "Edit this product", "/products/#{@product.id}/edit" %>
-<%= link_to "Delete this shit", "/products/#{@product.id}", method: :delete %>
+<% if current_user && current_user.admin %>
+  <%= link_to "Edit this product", "/products/#{@product.id}/edit", class: "btn btn-success" %>
+  <%= link_to "Delete this shit", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+<% end %>
 </div>
 
