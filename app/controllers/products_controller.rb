@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show, :run_search]
+
   def random
     product_id = params[:id]
     @product = Product.find_by(id: product_id)
@@ -29,11 +31,7 @@ class ProductsController < ApplicationController
   end
 
   def new 
-    if current_user && current_user.admin
-      render 'new.html.erb'
-    else
-      redirect_to "/"
-    end
+    render 'new.html.erb'
   end
 
   def create
@@ -85,5 +83,13 @@ class ProductsController < ApplicationController
     search_term = params[:search]
     @products = Product.where("name LIKE ?", "%" + search_term + "%")
     render 'index.html.erb'
+  end
+
+  private 
+
+  def authenticate_admin!
+    unless current_user && current_user.admin
+      redirect_to "/"
+    end
   end
 end
