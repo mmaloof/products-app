@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+
   def create 
     @carted_products = current_user.carted_products.where(status: 'carted')
 

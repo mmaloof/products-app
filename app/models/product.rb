@@ -6,6 +6,11 @@ class Product < ActiveRecord::Base
   has_many :categories, through: :categorized_products
   has_many :carted_products
   has_many :orders, through: :carted_products
+
+  validates :name, presence: true
+  validates :price, presence: true
+  validates :price, numericality: true
+  
   
   TAX_RATE = 0.09
 

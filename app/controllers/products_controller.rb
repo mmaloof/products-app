@@ -31,19 +31,23 @@ class ProductsController < ApplicationController
   end
 
   def new 
+    @product = Product.new
     render 'new.html.erb'
   end
 
   def create
-    Product.create(
+    @product = Product.new(
       name: params[:name],
-      description: params[:description],
       price: params[:price],
       material: params[:material],
       user_id: current_user.id 
     )
-    flash[:success] = "Wow, thanks for doing my job for me!"
-    redirect_to "/products/#{@product.id}"
+    if @product.save
+      flash[:success] = "Hey, thanks for adding that shit!"
+      redirect_to "/products/#{@product.id}"
+    else 
+      render "new.html.erb"
+    end
   end
 
   def show
@@ -53,22 +57,21 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    product_id = params[:id]
-    @product = Product.find_by(id: product_id)
-    render 'edit.html.erb'
+    @product = Product.find_by(id: params[:id])
   end
 
   def update
-    product_id = params[:id]
-    @product = Product.find_by(id: product_id)
-    @product.update(
+    @product = Product.find_by(id: params[:id])
+    if @product.update(
       name: params[:name],
-      description: params[:description],
       price: params[:price],
       material: params[:material]
     )
-    flash[:success] = "Product successfully updated!"
-    redirect_to "/products/#{@product.id}"
+      flash[:success] = "Product successfully updated, thanks dude. I guess..."
+      redirect_to "/products/#{@product.id}"
+    else
+      render "edit.html.erb"
+    end
   end
 
   def destroy
